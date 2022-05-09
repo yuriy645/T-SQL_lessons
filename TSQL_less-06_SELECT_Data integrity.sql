@@ -9,10 +9,10 @@
 --After analyzing the tables and options for possible queries to them, impose restrictions on the uniqueness of values for possible target fields of tables.
 
 DROP DATABASE HomeTask_6 
-CREATE DATABASE HomeTask_6 -- создание базы данных с параметрами по-умолчанию
+CREATE DATABASE HomeTask_6 -- СЃРѕР·РґР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… СЃ РїР°СЂР°РјРµС‚СЂР°РјРё РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ
       
 ALTER DATABASE HomeTask_6
-COLLATE Cyrillic_General_CI_AS	-- параметры сортировки для базы данных по умолчанию
+COLLATE Cyrillic_General_CI_AS	-- РїР°СЂР°РјРµС‚СЂС‹ СЃРѕСЂС‚РёСЂРѕРІРєРё РґР»В¤ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 
 USE HomeTask_6
 
@@ -34,13 +34,13 @@ INSERT INTO AirPorts
 		('500','n1234','kyiv',       '25','34','-2'),
 		('678','n7204','kharkiv',    '78','45','-6'),
 		('490','n9234','Antalya',    '37','67','4'),
-		('134','n1234','воскресенка','10','98','54'),
+		('134','n1234','РІРѕСЃРєСЂРµСЃРµРЅРєР°','10','98','54'),
 		--('510','n7234','kharkiv',    '76','64','-46'),
 		('356','n9234','lviv',       '26','23','47'),
 		('758','n1234','varshava',   '46','54','52'),
 		('125','n7234','Chandler',   '85','79','35'),
 		('769','n9z34','odesa',      '68','37','24'),
-		('879','n9j34','бобруйск',  '35','19','-34'),
+		('879','n9j34','Р±РѕР±СЂСѓР№СЃРє',  '35','19','-34'),
 		('435','n9h34','Berlin',    '54','40','-12')
 
 --DROP TABLE AirCrafts		
@@ -52,12 +52,12 @@ CREATE TABLE AirCrafts
 	SeatsNumber int NOT NULL, 
 	FareConditions nvarchar(30) NOT NULL UNIQUE CONSTRAINT CK_AirCrafts_FareConditions  CHECK (FareConditions IN ('Lorem ipsum', 'dolor sit amet', 'consectetur adipiscing', 'sed do eiusmod'))
 	
-	--CONSTRAINT PK_AirCrafts_AircraftCode_FareConditions PRIMARY KEY (FareConditions) --тут PK состоит из 2-х!!! столбцов одновременно!
+	--CONSTRAINT PK_AirCrafts_AircraftCode_FareConditions PRIMARY KEY (FareConditions) --С‚СѓС‚ PK СЃРѕСЃС‚РѕРёС‚ РёР· 2-С…!!! СЃС‚РѕР»Р±С†РѕРІ РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ!
 );
 GO
 
 ALTER TABLE AirCrafts 
-ADD CONSTRAINT CK_AirCrafts_SeatsNumber CHECK (SeatsNumber <= Range/2) -- ограничение для таблицы
+ADD CONSTRAINT CK_AirCrafts_SeatsNumber CHECK (SeatsNumber <= Range/2) -- РѕРіСЂР°РЅРёС‡РµРЅРёРµ РґР»В¤ С‚Р°Р±Р»РёС†С‹
 
 ALTER TABLE AirCrafts
 DROP CONSTRAINT CK_AirCrafts_SeatsNumber
@@ -119,7 +119,7 @@ INSERT INTO Flights
 --(column_1, column_2)
 	VALUES
 		('f1','1234','20201225','20201226','500','356','1',      'aircraft19',       '20201227','lviv'),
-		('f2','7234','20201225','20201226','678','758','1',  'aircraft35',    '20211227','бобруйск'),
+		('f2','7234','20201225','20201226','678','758','1',  'aircraft35',    '20211227','Р±РѕР±СЂСѓР№СЃРє'),
 		('f3','9234','20201225','20201226','490','125','1','aircraft44','20201228','varshava'),
 		('f4','1234','20201225','20201226','134','769','1',       'aircraft19',       '20201227','lviv')
 		--(,' ',),
@@ -141,13 +141,11 @@ GO
 
 INSERT Tickets 
 (TicketNumber, TotalAmount, PassangerId, PassangerName, ContactData)
-   VALUES --получить следующие результаты: Даты: сегодня, три месяца назад и 5 дней назад
-     ('1513551', '55','451345','Вася1', NULL), 
-	 ('4362265', '100','899999','Вася2','дата сегодня'),
-	 ('4362265', '100','899999','Вася3','дата 3 месяца назад'), 
-	 ('4362265', '100','899999','Вася2','дата 5 дней назад')
+   VALUES --РїРѕР»СѓС‡РёС‚СЊ СЃР»РµРґСѓСЋС‰РёРµ СЂРµР·СѓР»СЊС‚Р°С‚С‹: Ж’Р°С‚С‹: СЃРµРіРѕРґРЅВ¤, С‚СЂРё РјРµСЃВ¤С†Р° РЅР°Р·Р°Рґ Рё 5 РґРЅРµР№ РЅР°Р·Р°Рґ
+     ('1513551', '55','451345','В¬Р°СЃВ¤1', NULL), 
+	 ('4362265', '100','899999','В¬Р°СЃВ¤2','РґР°С‚Р° СЃРµРіРѕРґРЅВ¤'),
+	 ('4362265', '100','899999','В¬Р°СЃВ¤3','РґР°С‚Р° 3 РјРµСЃВ¤С†Р° РЅР°Р·Р°Рґ'), 
+	 ('4362265', '100','899999','В¬Р°СЃВ¤2','РґР°С‚Р° 5 РґРЅРµР№ РЅР°Р·Р°Рґ')
 	 
 GO
 
-
---*
