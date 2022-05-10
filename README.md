@@ -1,5 +1,5 @@
 # T-SQL_lessons
-## lesson number: 3
+## Lesson No.: 3
 --Additional task
 
 --From the database created in the previous lesson, get the following selections:
@@ -7,7 +7,7 @@
 -- - The names of all airports, the first character of the city name of which is the letter A, B or C, also, the time zone has a positive time component.
 -- -Only unique flight numbers whose destination airports did not match the real airport where the plane landed.
 
-## lesson number: 4
+## Lesson No.: 4
 --Additional task
 --Using the functions learned in the lesson, get the following results: Dates:
 --today, three months ago and 5 days ago, also present all these dates as constituent parts
@@ -17,7 +17,7 @@
 ---Get a selection of all booking objects that were made in the last month. Implement several options.
 ---Get a selection from the ticket table, replace all missing values of the user's contact information with the string "Undefined"
 
-## No. Lesson: 5
+## Lesson No.: 5
 --Additional task
 --Connecting to the HomeTask database, using aggregate functions and system tables, count the number of tables in this database.
 
